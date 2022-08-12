@@ -1,4 +1,5 @@
 from ensurepip import bootstrap
+from pydoc_data.topics import topics
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
@@ -36,7 +37,7 @@ pin_producer = KafkaProducer(
 def get_db_row(item: Data):
     data = dict(item)
     # publish message to the topic
-    pin_producer.send(topic = "Pinterest_Topic", value = data)
+    pin_producer.send(topic = "pinterest_topic", value = data)
 
 
 if __name__ == '__main__':
